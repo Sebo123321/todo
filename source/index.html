@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="hr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap -->
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0">
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <title>Todo list</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-light sticky-top" style="padding:10px;margin-bottom:20px;">
+            <a class="navbar-brand" href="./index.html"><img src="../Images/Logo.png" height="30px" alt="Logo"></a>
+            <button style="border: 1px solid rgb(48, 47, 47); border-radius: 5px" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="material-symbols-rounded">menu</span>
+            </button>
+            <div class="navbar-collapse collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link current-page" href="./index.html">Početna</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../other/advanced/advanced.html">Kompleksni zadatci</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../other/settings/settings.html">Postavke</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="page-content">
+            <h1 class="title"><span style="color:#1779BA">Napravi</span> zadatke, <span style="color:#198754;">lagano</span>.<sup style="font-style:italic;">beta</sup></h1><br>
+                 
+                <!-- Task input and add button start -->
+
+                <label for="taskTitle">Unesite naslov vašeg zadatka</label>
+                <input type="text" class="task-title" id="taskTitle" maxlength="50" autocomplete="true">
+                
+                <div class="container" style="display: flex; justify-content: center; margin: 10px;">
+                    <div class="row">
+                      <div class="col">
+                        <button class="btn btn-light btn-outline-info" onclick="const up = document.getElementById('taskTitle');up.classList.remove('lower');up.classList.remove('capi');up.classList.toggle('upper')">AB</button>
+                        <button class="btn btn-light btn-outline-info" onclick="const capi = document.getElementById('taskTitle');capi.classList.remove('upper');capi.classList.remove('lower');capi.classList.toggle('capi')">Ab</button>
+                        <button class="btn btn-light btn-outline-info" onclick="const down = document.getElementById('taskTitle');down.classList.remove('upper');down.classList.remove('capi');down.classList.toggle('lower')">ab</button>
+                      </div>
+                    </div>
+                </div>
+                  
+
+                <label for="taskDesc">Unesite tijelo (tekst) vašeg zadatka</label>
+                <textarea id="taskDesc" class="task-title" rows="10" style="max-height: 80%; max-width: 80%;" maxlength="4000"></textarea>
+                <br>
+                <button class="add-task btn btn-success btn-block" id="addTask" style="user-select:none;text-align:center;display: flex; justify-content: center; align-items: center; width: 30%;"><span class="material-symbols-sharp">add</span> Novi zadatak</button>
+
+                <!-- Task input and add button end -->
+                
+                <br><br>
+                
+                <p class="lead" id="taskNum">Broj zadataka: 0</p>
+
+                <div class="btn-group btn-group-lg" style="width: 50%">
+                    <button class="btn btn-danger rounded" id="deleteAll" style="margin: 10px;">Obriši sve</button>
+                    <button class="btn btn-warning rounded" id="deleteComplete" style="margin: 10px;">Obriši sve gotove</button>
+                </div>
+
+                <ul class="tasks" id="taskList"></ul> <!-- List of tasks -->
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>  
+        <script src="./script.js"></script>
+    </body>
+</html>
