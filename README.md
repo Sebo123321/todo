@@ -1,4 +1,4 @@
-<h1>Todo lista</h1> 
+<h1 align="center">Todo lista</h1> 
 
 <h2>Kratak opis</h2>
 
