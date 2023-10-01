@@ -23,27 +23,78 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg bg-light sticky-top" style="padding:10px;margin-bottom:20px;">
-            <a class="navbar-brand" href="../../index.html"><img src="../../images/Logo.png" height="30px" alt="Logo"></a>
+            <a class="navbar-brand" href="/index.html"><img src="../../images/Logo.png" height="30px" alt="Logo"></a>
             <button style="border: 1px solid rgb(48, 47, 47); border-radius: 5px" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="material-symbols-rounded">menu</span>
             </button>
             <div class="navbar-collapse collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="../../index.html">Početna</a>
+                        <a class="nav-link" href="/index.html">Početna</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link current-page" href="./advanced.html">Kompleksni zadatci</a>
+                        <a class="nav-link current-page" href="/other/advanced/advanced.html">Kompleksni zadatci</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../settings/settings.html">Postavke</a>
+                        <a class="nav-link" href="/other/settings/settings.html">Postavke</a>
                     </li>
                 </ul>
             </div>
         </nav>
 
         <div class="page-content">
-            <p>Kako ste?</p>
+            <h2>Kako urediti tekst zadatka?</h2>
+
+            <p>
+                Tekst se može urediti koristeći se laganim oznakama za uređivanje, neke od njih su:
+
+                <ul>
+                    <li>
+                        <code>&#60;b&#62;</code> odnosno <b>podebljanje</b>
+                    </li>
+                    <li>
+                        <code>&#60;i&#62;</code> odnosno <i>kurziv</i>
+                    </li>
+                    <li>
+                        <code>&#60;u&#62;</code> odnosno <u>podcrtavanje</u>
+                    </li>
+                    <li>
+                        <code>&#60;strike&#62;</code> odnsono <s>precrtano</s>
+                    </li>
+                </ul>
+
+                To su oznake za uređivanje. Evo nekoliko primjera:
+
+            </p>
+
+            <br><br>
+
+            <h3>Primjer 1.</h3>
+            
+            <p>
+                Ukoliko želite imati dio teksta koji želite označiti važnijim nego ostalim, možete koristiti <code>&#60;b&#62;</code>
+                <br>
+                oznake ili <em>tagove</em>.
+                <br>
+                Sada imate neki dio teksta koji niste sigurni treba li se napraviti, je li skroz napravljen i sl., možete koristit <code>&#60;i&#62;</code>
+                <br>
+                tagove.
+                <br>
+            </p>
+            <br>
+            <p class="lead">Ovako bi taj zadatak mogao izgledati</p>
+            <ul id="taskList">
+                <li>
+                    <div class=task-t-and-d" style="width:70%;max-width:70%;min-width:70%;">
+                        <h2>naslov</h2>
+                        <p>Stavi <b>više</b> brašna nego u videu.<br>Dodaj <i>pola litre mlijeka</i> (opcionalno)<br></p>
+                      </div>
+                      <div class="task-styling">
+                        <button onclick="removeTask(this)" class="remove-button"><span class="material-icons" onclick="removeTask(this.parentElement)">delete</span></button>
+                        <input type="checkbox" onchange="markTaskCompleted(this)">
+                      </div>
+                </li>
+            </ul>
         </div>
 
         <script src="../advanced/advanced.js"></script>
