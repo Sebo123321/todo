@@ -137,7 +137,7 @@ function toggleMode() {
     });
   }
 
-  dark = !dark;
+  dark = !dark; // Make the dark mode status opposite than is now
 }
 
 toggler.addEventListener("click", toggleMode);
