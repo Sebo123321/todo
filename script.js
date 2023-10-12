@@ -21,8 +21,8 @@ function addTasks() {
     <p>${taskDesc}</p>
   </div>
   <div class="task-styling">
-    <button onclick="removeTask(this)" class="remove-button"><span class="material-icons" onclick="removeTask(this.parentElement)">delete</span></button>
-    <input type="checkbox" onchange="markTaskCompleted(this)">
+    <button onclick="removeTask(this)" class="btn bg-danger"><i class="fa-solid fa-trash fa-xl" style="color: #0;"></i></button>
+    <input type="checkbox" class="bg-danger" onchange="markTaskCompleted(this)">
   </div>
   `;
 
@@ -65,14 +65,15 @@ removeAllTasksButton.addEventListener("click", () => {
 
 // Delete only completed tasks
 
-const removeOnlyCompletedTasksButton = document.getElementById("deleteComplete");
+const removeOnlyCompletedTasksButton =
+  document.getElementById("deleteComplete");
 
 removeOnlyCompletedTasksButton.addEventListener("click", () => {
   const completedTasks = taskList.querySelectorAll("li.completed");
 
   completedTasks.forEach((task) => {
-    taskList.removeChild(task)
-  })
+    taskList.removeChild(task);
+  });
 });
 
 // Remove the task
@@ -95,3 +96,48 @@ function markTaskCompleted(checkbox) {
     taskItem.classList.remove("completed"); // Remove the CSS class
   }
 }
+
+// Dark (dark) mode
+
+const toggler = document.getElementById("darkModeToggle");
+const icon = document.getElementById("icon");
+const allText = document.querySelectorAll(
+  "label, p, ul.tasks li h2, ul.tasks li div.task-t-and-d p, sup, .title"
+);
+let dark = false;
+
+function toggleMode() {
+  if (dark) {
+    icon.classList.remove("fa-moon"); // Remove the moon icon
+
+    icon.classList.add("fa-sun"); // Add the sun icon
+
+    // Change the page theme to light
+
+    document.body.classList.remove("bg-dark");
+    document.body.style.backgroundColor = "white";
+
+    allText.forEach((textElement) => {
+      textElement.style.color = "black";
+      textElement.style.transition = "color 0.3s linear";
+    });
+  } else if (!dark) {
+    icon.classList.remove("fa-sun"); // Remove the sun icon
+
+    icon.classList.add("fa-moon"); // Add the moon icon
+
+    // Change the page theme to dark
+
+    document.body.style.transition = "background-color 0.3s"
+    document.body.classList.add("bg-dark");
+
+    allText.forEach((textElement) => {
+      textElement.style.color = "whitesmoke";
+      textElement.style.transition = "color 0.3s";
+    });
+  }
+
+  dark = !dark;
+}
+
+toggler.addEventListener("click", toggleMode);
